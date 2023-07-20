@@ -1,5 +1,17 @@
+'''
+This selenium script will verify the email registration process in the ecommerce store
+The script can only be run once since an error will be generated once an email used
+for registration already exists in the database.
+
+Created By - Jeniffer Lagman
+Date - July 20, 2023
+
+'''
+
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import time
 
 driver = webdriver.Chrome()
 
@@ -16,7 +28,7 @@ if not user_email.is_displayed():
 
 
 # input email into the field
-user_email.send_keys('lagmanj003@supersqa.com')
+user_email.send_keys('lagmanj005@supersqa.com')
 
 # find the password field
 user_pwd = driver.find_element(By.ID, 'reg_password')
@@ -32,6 +44,9 @@ user_pwd.send_keys('AT#CDsdfadf98!')
 # click on the Register button
 register_btn = driver.find_element(By.CSS_SELECTOR, '#customer_login > div.u-column2.col-2 > form > p:nth-child(4) > button')
 register_btn.click()
+breakpoint()
+
+time.sleep(3)
 
 print("Email has been registered successfully.")
 print("PASS")
