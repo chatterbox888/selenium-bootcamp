@@ -1,3 +1,13 @@
+'''
+This script will input an invalid coupon code once an item has been checked out from the cart.
+An error message will be displayed.
+
+Created by - Jeniffer Lagman
+Date - July 20, 2023
+
+'''
+
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
