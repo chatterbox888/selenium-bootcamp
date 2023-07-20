@@ -1,5 +1,5 @@
 '''
-This script will input an invalid coupon code once an item has been checked out from the cart.
+This script will input an invalid coupon code once user adds item to the cart.
 An error message will be displayed.
 
 Created by - Jeniffer Lagman
