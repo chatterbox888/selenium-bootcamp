@@ -11,7 +11,9 @@ Date - July 20, 2023
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
+from datetime import date
+import random
+import string
 
 driver = webdriver.Chrome()
 
@@ -26,9 +28,18 @@ user_email = driver.find_element(By.ID, 'reg_email')
 if not user_email.is_displayed():
     raise Exception("The user email field is not displayed.")
 
+# generate a random string composed of 10 characters
+letters = string.ascii_letters
+random_string = ''.join(random.sample(letters, 10))
+
+# get today's date
+today = date.today()
+
+# concatenate the random string, datetime and email domain to generate email
+email = random_string + today.strftime("%Y%m%d_%H%M%S") + "@gmail.com"
 
 # input email into the field
-user_email.send_keys('lagmanj005@supersqa.com')
+user_email.send_keys(email)
 
 # find the password field
 user_pwd = driver.find_element(By.ID, 'reg_password')
@@ -44,9 +55,6 @@ user_pwd.send_keys('AT#CDsdfadf98!')
 # click on the Register button
 register_btn = driver.find_element(By.CSS_SELECTOR, '#customer_login > div.u-column2.col-2 > form > p:nth-child(4) > button')
 register_btn.click()
-breakpoint()
-
-time.sleep(3)
 
 print("Email has been registered successfully.")
 print("PASS")
